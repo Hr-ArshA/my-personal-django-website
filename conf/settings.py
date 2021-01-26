@@ -36,6 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
+    'rest_framework',
+    'django_render_partial',
+    'extention',
+    'django_gravatar',
+
+
     # my apps
     'blog.apps.BlogConfig',
 ]
