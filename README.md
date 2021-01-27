@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-</head>
-<body>
-      <h1>this is my personal django website</h1>
-      <hr>
-</body>
-</html>
+# this is my personal django website
+
+#### my name is alireza shabanpour an this is my first django website project
+#### And I'm currently building this site
+#### I will complete this file as soon as I am done
