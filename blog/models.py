@@ -19,7 +19,6 @@ class Post(models.Model):
     work = models.BooleanField(verbose_name='نمونه کار')
     # Category = models.ManyToManyField(Category, related_name='posts')
     Author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', verbose_name='نویسنده')
-    # Description = models.TextField(verbose_name='متن')
     Description = RichTextField()
     Image = models.ImageField(upload_to='img', verbose_name='تصویر')
     Publish = models.DateTimeField(default=timezone.now, verbose_name='زمان انتشار')
