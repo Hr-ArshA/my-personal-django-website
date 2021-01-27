@@ -1,3 +1,12 @@
-# my-personal-django-website
-this is my personal django website
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+      <h1>this is my personal django website</h1>
+      <hr>
+</body>
+</html>
