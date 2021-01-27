@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django_render_partial',
     'extention',
     'django_gravatar',
-
+    'comment',
 
     # my apps
     'blog.apps.BlogConfig',

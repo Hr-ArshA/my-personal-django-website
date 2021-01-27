@@ -8,3 +8,4 @@ from blog.models import Post
 
 class Blog(ListView):
     queryset = Post.objects.all()
+    paginate_by = 8
