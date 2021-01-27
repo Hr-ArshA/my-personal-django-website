@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
+    'ckeditor',
+    'ckeditor_uploader',
     'rest_framework',
     'django_render_partial',
     'extention',
@@ -133,3 +134,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'static_root')
 MEDIA_URL = '/MEDIA/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'media_root')
+
+CKEDITOR_UPLOAD_PATH = 'upload_files/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
