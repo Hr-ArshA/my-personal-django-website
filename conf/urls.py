@@ -21,11 +21,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('blog.urls'))
 
 ]
 
 if settings.DEBUG:
-    # add root static files
+    # add root assets files
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    # add media static files
+    # add media assets files
     urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
