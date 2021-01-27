@@ -6,11 +6,11 @@ from django.core import validators
 
 class LoginForm(forms.Form):
     user_name = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'نام کاربری'}),
+        widget=forms.TextInput(attrs={'placeholder': 'نام کاربری', 'class': 'col-md-10'}),
         label='نام کاربری'
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'گذرواژه'}),
+        widget=forms.PasswordInput(attrs={'placeholder': 'گذرواژه', 'class': 'col-md-10'}),
         label='گذرواژه'
     )
 
