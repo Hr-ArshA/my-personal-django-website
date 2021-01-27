@@ -1,4 +1,4 @@
-
+from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db import models
 from extention.utils import JalaliDjango
@@ -14,10 +14,11 @@ from django.utils import timezone
 class Post(models.Model):
     Title = models.CharField(max_length=200, verbose_name='عنوان')
     slug = models.SlugField(unique=True, verbose_name='آدرس')
-    work = models.BooleanField(verbose_name='نمونه کار؟')
+    work = models.BooleanField(verbose_name='نمونه کار')
     # Category = models.ManyToManyField(Category, related_name='posts')
     Author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', verbose_name='نویسنده')
-    Description = models.TextField(verbose_name='متن')
+    # Description = models.TextField(verbose_name='متن')
+    Description = RichTextField()
     Image = models.ImageField(upload_to='img', verbose_name='تصویر')
     Publish = models.DateTimeField(default=timezone.now, verbose_name='زمان انتشار')
     Created = models.DateTimeField(auto_now_add=True, verbose_name='ایجاد شده در')
