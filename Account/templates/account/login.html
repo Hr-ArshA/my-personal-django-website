@@ -1,50 +1,73 @@
-{% extends 'shared/_MainLayout.html' %}
+{% extends 'blog/Base.html' %}
 
 {% block content %}
-
-    <div class="container">
-        <section id="form"><!--form-->
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-1">
-                    <div class="login-form"><!--login form-->
-                        <h2>ورود به حساب کاربـری :</h2>
-                        <form method="post">
-                            {% csrf_token %}
-                            {#                            {{ login_form }}#}
-                            <label for="{{ login_form.user_name.id_for_label }}">{{ login_form.user_name.label }}</label>
-                            {{ login_form.user_name }}
-                            {% for error in login_form.user_name.errors %}
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>ورود</h3>
+                    </div>
+                </div>
+            </div>
 
-                                <p class="text-danger">{{ error }}</p>
+            <!-- /bradcam_area  -->
 
-                            {% endfor %}
+            <div class="container align-center">
+                <div class="">
+                    <section id="form"><!--form-->
+                        <div class="row">
+                            <div class="m-auto ml-5">
+                                <div class="login-form "><!--login form-->
+                                    <div class="">
+                                        <form method="post" class="form-control text-right mt-5 mb-5 ml-5"
+                                              style="border: none">
+                                            <div class="breadcrumb "><h2>ورود به حساب کاربـری :</h2></div>
+                                            {% csrf_token %}
+                                            {#{{ login_form }}#}
+                                            <label for="{{ login_form.user_name.id_for_label }}">{{ login_form.user_name.label }}</label>
+                                            <br>
+                                            {{ login_form.user_name }}
+                                            {% for error in login_form.user_name.errors %}
 
-                            <label for="{{ login_form.password.id_for_label }}">{{ login_form.password.label }}</label>
-                            {{ login_form.password }}
-                            {% for error in login_form.password.errors %}
+                                                <p class="text-danger">{{ error }}</p>
 
-                                <p class="text-danger">{{ error }}</p>
+                                            {% endfor %}
+                                            <br>
+                                            <label class="mt-3"
+                                                   for="{{ login_form.password.id_for_label }}">{{ login_form.password.label }}</label>
+                                            <br>
+                                            {{ login_form.password }}
+                                            {% for error in login_form.password.errors %}
 
-                            {% endfor %}
+                                                <p class="text-danger">{{ error }}</p>
 
+                                            {% endfor %}
 
-                            <span>
+                                            <br>
+                                            <span class="mt-3 mb-3">
 								<input type="checkbox" class="checkbox">
 								مرا بخاطـر بسپـار
 							</span>
-                            <span>
+                                            <span>
+                                <br>
 								<a href="forget-password.html">رمـز عبـور خود را فراموش کرده ام</a>
 							</span>
-                            <button type="submit" class="btn btn-default">ورود</button>
-                        </form>
-                    </div><!--/login form-->
+                                            <br>
+
+                                            <button type="submit" class="btn btn-primary align-left mt-3 text-left">ورود
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div><!--/login form-->
+                            </div>
+                        </div>
+                    </section>
                 </div>
-
             </div>
+            <!--/form-->
+        </div>
     </div>
-    </section>
-    </div>
-    <!--/form-->
-
 
 {% endblock %}
