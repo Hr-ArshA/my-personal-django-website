@@ -1,5 +1,7 @@
 from ckeditor.fields import RichTextField
+from comment.models import Comment
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from extention.utils import JalaliDjango
 from django.utils import timezone
@@ -24,7 +26,7 @@ class Post(models.Model):
     Created = models.DateTimeField(auto_now_add=True, verbose_name='ایجاد شده در')
     Update = models.DateTimeField(auto_now=True, verbose_name='ویرایش شده در')
     Status = models.BooleanField(default=True, verbose_name='پیش نویس')
-    # comments = GenericRelation(Comment)
+    comments = GenericRelation(Comment)
 
     class Meta:
         verbose_name = 'پست'
