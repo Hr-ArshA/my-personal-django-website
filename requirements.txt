@@ -1,0 +1,11 @@
+asgiref==3.3.1
+Django==3.1.5
+django-ckeditor==6.0.0
+django-comments-dab==2.5.1
+django-gravatar2==1.4.4
+django-js-asset==1.2.2
+django-render-partial==0.4
+djangorestframework==3.12.2
+Pillow==8.1.0
+pytz==2020.5
+sqlparse==0.4.1
