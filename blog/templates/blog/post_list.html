@@ -34,7 +34,7 @@
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="#">
+                                    <a class="d-inline-block" href="{% url 'blog_detail' post.slug %}">
                                         <h2>{{ post.Title }}</h2>
                                     </a>
                                     <p>{{ post.Description|safe|truncatewords:20 }}</p>
