@@ -9,7 +9,29 @@ from django.utils import timezone
 
 # Create your models here.
 
+class post_manager(models.Manager):
+    def published(self):
+        return self.filter(Status=True)
 
+
+class categorymanager(models.Manager):
+    def active(self):
+        return self.filter(Status=True)
+
+
+class Category(models.Model):
+    Title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    Status = models.BooleanField(default=True)
+    Position = models.IntegerField()
+
+    class Meta():
+        ordering = ['Position']
+
+    def __str__(self):
+        return self.Title
+
+    objects = categorymanager()
 
 
 
@@ -36,3 +58,8 @@ class Post(models.Model):
 
     def jpublish(self):
         return JalaliDjango(self.Publish)
+
+    def category_published(self):
+        return self.Category.filter(Status=True)
+
+    objects = post_manager()

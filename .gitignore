@@ -9,3 +9,11 @@ blog/migrations/0001_initial.py
 static_cdn
 Account/__pycache__/
 Account/migrations/__pycache__/
+comment/__pycache__/
+comment/conf/__pycache__/
+comment/managers/__pycache__/
+comment/migrations/__pycache__/
+comment/models/__pycache__/
+comment/signals/__pycache__/
+comment/templatetags/__pycache__/
+comment/views/__pycache__/
