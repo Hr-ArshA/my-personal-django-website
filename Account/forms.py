@@ -6,11 +6,11 @@ from django.core import validators
 
 class LoginForm(forms.Form):
     user_name = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'نام کاربری', 'class': 'col-md-10'}),
+        widget=forms.TextInput(attrs={'placeholder': 'نام کاربری', 'class': 'col-md-12'}),
         label='نام کاربری'
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'گذرواژه', 'class': 'col-md-10'}),
+        widget=forms.PasswordInput(attrs={'placeholder': 'گذرواژه', 'class': 'col-md-12'}),
         label='گذرواژه'
     )
 
@@ -25,23 +25,23 @@ class LoginForm(forms.Form):
 class RegisterForm(forms.Form):
     user_name = forms.CharField(
         widget=forms.TextInput(attrs={
-            "placeholder": "نام کاربری"}),
+            "placeholder": "نام کاربری", 'class': 'col-md-12'}),
         label=' نام کاربری'
     )
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={
-            "placeholder": "ایمیل"}),
+            "placeholder": "ایمیل", 'class': 'col-md-12'}),
         label='ایمیل',
         validators=[validators.EmailValidator('ایمیل معتبر نمی باشد')],
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={
-            "placeholder": "گذرواژه"}),
+            "placeholder": "گذرواژه", 'class': 'col-md-12'}),
         label='گذرواژه'
     )
     re_password = forms.CharField(
         widget=forms.PasswordInput(attrs={
-            "placeholder": "تایید گذرواژه"}),
+            "placeholder": "تایید گذرواژه", 'class': 'col-md-12'}),
         label=' تکرار گذرواژه',
         # چک کردن داده دریافتی و شخصی سازی کردنش،مثلا حداقل چند کارکتر باشه
         validators=[validators.MinLengthValidator(6,'گذرواژه باید حداقل 6 کارکتر باشد')]
