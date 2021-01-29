@@ -1,50 +1,86 @@
-{% extends 'shared/_MainLayout.html' %}
+{% extends 'blog/Base.html' %}
+
+{% block title %} |  ثبت نام {% endblock %}
 
 {% block content %}
-
-    <div class="container">
-        <section id="form"><!--form-->
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-1">
-                    <div class="signup-form"><!--sign up form-->
-                        <h2>ثبت نام کاربـر جدیـد</h2>
-                        <form method="post">
-                            {% csrf_token %}
-                            <label for="{{ register_form.user_name.id_for_label }}">{{ register_form.user_name.label }}</label>
-                            {{ register_form.user_name }}
-                            {% for error in register_form.user_name.errors %}
-
-                                <p class="text-danger">{{ error }}</p>
-
-                            {% endfor %}
-                            <label for="{{ register_form.email.id_for_label }}">{{ register_form.email.label }}</label>
-                            {{ register_form.email }}
-                            {% for error in register_form.email.errors %}
-
-                                <p class="text-danger">{{ error }}</p>
-
-                            {% endfor %}
-                            <label for="{{ register_form.password.id_for_label }}">{{ register_form.password.label }}</label>
-                            {{ register_form.password }}
-                            {% for error in register_form.password.errors %}
-
-                                <p class="text-danger">{{ error }}</p>
-
-                            {% endfor %}
-                            <label for="{{ register_form.re_password.id_for_label }}">{{ register_form.re_password.label }}</label>
-                            {{ register_form.re_password }}
-                            {% for error in register_form.re_password.errors %}
-
-                                <p class="text-danger">{{ error }}</p>
-
-                            {% endfor %}
-                            <button type="submit" class="btn btn-default">ثبت نام</button>
-                        </form>
-                    </div><!--/sign up form-->
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3></h3>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
-    <!--/form-->
 
+            <!-- /bradcam_area  -->
+
+            <div class="container align-center">
+                <section id="form"><!--form-->
+                    <div class="row">
+                        <div class="col-sm-4 m-auto">
+                            <div class="signup-form"><!--sign up form-->
+
+                                <form method="post" class="form-control  text-right mt-5 mb-5 ml-5">
+                                    <div class="breadcrumb "><h2>ثبت نام کاربـر جدیـد</h2></div>
+                                    {% csrf_token %}
+                                    <label for="{{ register_form.user_name.id_for_label }}">{{ register_form.user_name.label }}</label>
+                                    {{ register_form.user_name }}
+                                    {% for error in register_form.user_name.errors %}
+
+                                        <p class="text-danger">{{ error }}</p>
+
+                                    {% endfor %}
+                                    <br>
+                                    <label for="{{ register_form.email.id_for_label }}">{{ register_form.email.label }}</label>
+                                    <br>
+                                    {{ register_form.email }}
+                                    {% for error in register_form.email.errors %}
+
+                                        <p class="text-danger">{{ error }}</p>
+
+                                    {% endfor %}
+                                    <br>
+                                    <label for="{{ register_form.password.id_for_label }}">{{ register_form.password.label }}</label>
+                                    <br>
+                                    {{ register_form.password }}
+                                    {% for error in register_form.password.errors %}
+
+                                        <p class="text-danger">{{ error }}</p>
+
+                                    {% endfor %}
+                                    <br>
+                                    <label for="{{ register_form.re_password.id_for_label }}">{{ register_form.re_password.label }}</label>
+                                    <br>
+                                    {{ register_form.re_password }}
+                                    {% for error in register_form.re_password.errors %}
+
+                                        <p class="text-danger">{{ error }}</p>
+
+                                    {% endfor %}
+                                    <br>
+                                    <div class="mt-3 text-center">
+                                        <span>
+                                            <a href="{% url 'login' %}" class="bold">ورود</a>
+                                        </span>
+                                        <span>
+                                            /
+                                        </span>
+                                        <span>
+                                            <a href="forget-password.html" class="">رمـز عبـور خود را فراموش کرده ام</a>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary mt-3 col-12 align-center">ثبت نام
+                                    </button>
+                                </form>
+                            </div><!--/sign up form-->
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--/form-->
+        </div>
+    </div>
 {% endblock %}
