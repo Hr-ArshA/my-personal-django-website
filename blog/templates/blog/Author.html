@@ -1,9 +1,8 @@
 {% extends 'blog/Base.html' %}
 {% load render_partial %}
-{% load comment_tags %}
-{% load gravatar %}
-
+{% load  static %}
 {% block content %}
+{% load gravatar %}
 
     <!-- bradcam_area  -->
     <div class="bradcam_area bradcam_bg_1">
@@ -11,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>Hr ArshA</h3>
+                        <h3>بلاگ</h3>
                     </div>
                 </div>
             </div>
@@ -21,32 +20,41 @@
 
 
     <!--================Blog Area =================-->
-    <section class="blog_area section-padding">
+    <section class="blog_area section-padding text-right">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mb-5 mb-lg-0 text-right">
+                <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
+
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li><img src="{% gravatar_url user.email 100 %}" alt=""></li>
+                                <li class="breadcrumb-item active pt-4 pr-2" aria-current="page" style="font-size: 25px;">{{ Author.get_full_name }}</li>
+                            </ol>
+                        </nav>
                         {% for post in object_list %}
+
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="{{ post.Image.url }}" alt="">
                                     <a href="#" class="blog_item_date">
                                         <h3>{{ post.jpublish }}</h3>
-
+                                        {#                                        <p>{{ post.Publish|date:'M' }}</p>#}
                                     </a>
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="{% url 'blog_detail' post.slug %}">
+                                    <a class="d-inline-block" href="{% url 'blog:blog_detail' post.slug %}">
                                         <h2>{{ post.Title }}</h2>
                                     </a>
-                                    <p>{{ post.Description|safe|truncatewords:20 }}</p>
+                                    <p>{{ post.Description|truncatewords:30|safe }}</p>
                                     <ul class="blog-info-link">
-                                        <li><a href="#"><i class="fa fa-user"></i> {{ post.Author.get_full_name }}</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-user"></i>{{ post.Author }}</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
                                     </ul>
                                 </div>
                             </article>
+
                         {% endfor %}
                         {% if is_paginated %}
                             <nav class="blog-pagination justify-content-center d-flex">
@@ -93,5 +101,6 @@
         </div>
     </section>
     <!--================Blog Area =================-->
+
 
 {% endblock %}
