@@ -26,5 +26,19 @@ class blog_detail(DetailView):
 
         return context
 
+class category_list(ListView):
+    template_name = 'blog/category.html'
+    paginate_by = 8
 
+    def get_queryset(self):
+        global category
+        slug = self.kwargs.get('slug')
+        category = get_object_or_404(Category.objects.active(), slug=slug)
+        return category.posts.published()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = category
+
+        return context
 
