@@ -16,4 +16,14 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post,PostAdmin)
-admin.site.register(Category)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('Position','Title','slug','Status')
+    list_filter = (['Status'])
+    search_fields = ('Title','slug')
+    prepopulated_fields = {'slug':('Title',)}
+
+
+
+admin.site.register(Category,CategoryAdmin)
