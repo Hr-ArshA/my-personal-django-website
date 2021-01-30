@@ -42,3 +42,18 @@ class category_list(ListView):
 
         return context
 
+class Author_list(ListView):
+    template_name = 'blog/Author.html'
+    paginate_by = 8
+
+    def get_queryset(self):
+        global Author
+        username = self.kwargs.get('username')
+        Author = get_object_or_404(User, username=username)
+        return Author.posts.published()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Author'] = Author
+
+        return context
