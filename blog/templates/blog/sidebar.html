@@ -1,0 +1,65 @@
+{% load static %}
+
+
+<div class="col-lg-4 text-right">
+    <div class="blog_right_sidebar">
+        <aside class="single_sidebar_widget search_widget">
+            <form action="#">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder='Search Keyword'
+                               onfocus="this.placeholder = 'جست و جو'"
+                               onblur="this.placeholder = 'جست و جو'">
+                        <div class="input-group-append">
+                            <button class="btn" type="button"><i class="ti-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                        type="submit">جست و جو
+                </button>
+            </form>
+        </aside>
+        <aside class="single_sidebar_widget search_widget">
+            <h3 class="widget_title">پادکست</h3>
+            <iframe src="https://castbox.fm/app/castbox/player/id3540202?v=8.22.11&autoplay=0" frameborder="0" width="100%" height="500"></iframe>
+        </aside>
+
+        <aside class="single_sidebar_widget post_category_widget">
+            <h4 class="widget_title">دسته بندی</h4>
+            {% for cat in category %}
+
+                <ul class="list cat-list">
+                    <li>
+                        <a href="{% url 'category' cat.slug %}" class="d-flex">
+                            <p>{{ cat.Title }}</p>
+
+                        </a>
+                    </li>
+
+                </ul>
+
+            {% endfor %}
+        </aside>
+
+        <aside class="single_sidebar_widget popular_post_widget">
+            <h3 class="widget_title">آخرین ارسال ها</h3>
+            {% for post in Post %}
+
+                <div class="media post_item">
+                    <img src="{{ post.Image.url }}" width="50" height="50" alt="post">
+
+                    <div class="media-body" style="padding-left: 0;padding-right: 20px !important;">
+                        <a href="{% url 'blog_detail' post.slug %}">
+                            <h3>{{ post.Title|truncatewords:3 }}</h3>
+                        </a>
+                        <p>{{ post.jpublish }}</p>
+                    </div>
+                </div>
+                <hr>
+
+            {% endfor %}
+        </aside>
+
+    </div>
+</div>
