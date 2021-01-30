@@ -1,0 +1,40 @@
+{% load static %}
+{% load gravatar %}
+
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-2">
+                        <div class="logo">
+                            <a href="{% url 'blog' %}">
+                                <img src="{% gravatar_url 'a_sh1379@yahoo.com' 100 %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-10">
+                        <div class="main-menu  d-none d-lg-block text-left">
+                            <nav>
+                                <ul id="navigation">
+                                    <li><a class="active" href="{% url 'blog' %}">خانه</a></li>
+
+                                    {% for cat in category %}
+
+                                        <li><a class="" href="{% url 'category' cat.slug %}">{{ cat.Title }}</a></li>
+
+                                    {% endfor %}
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->

@@ -4,5 +4,26 @@ from blog.models import Post, Category
 # Register your models here.
 
 
-admin.site.register(Post)
-admin.site.register(Category)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('Title','slug','jpublish', 'Author','Status','category_to_str')
+    list_filter = ('Publish','Status')
+    search_fields = ('Title','Description')
+    prepopulated_fields = {'slug':('Title',)}
+    ordering = ['-Publish']
+
+    def category_to_str(self, obj):
+        return '، '.join([Category.Title for Category in obj.category_published()])
+
+
+admin.site.register(Post,PostAdmin)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('Position','Title','slug','Status')
+    list_filter = (['Status'])
+    search_fields = ('Title','slug')
+    prepopulated_fields = {'slug':('Title',)}
+
+
+
+admin.site.register(Category,CategoryAdmin)
