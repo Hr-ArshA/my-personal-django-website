@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>بلاگ</h3>
+                        <h3>Hr ArshA</h3>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="{% url 'blog:blog_detail' post.slug %}">
+                                    <a class="d-inline-block" href="{% url 'blog_detail' post.slug %}">
                                         <h2>{{ post.Title }}</h2>
                                     </a>
                                     <p>{{ post.Description|truncatewords:30|safe }}</p>
