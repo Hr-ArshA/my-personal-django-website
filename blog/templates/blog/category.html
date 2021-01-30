@@ -1,0 +1,104 @@
+{% extends 'blog/Base.html' %}
+{% load render_partial %}
+{% load  static %}
+{% block content %}
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>بلاگ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /bradcam_area  -->
+
+
+    <!--================Blog Area =================-->
+    <section class="blog_area section-padding text-right">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">{{ category.Title }}</li>
+                            </ol>
+                        </nav>
+                        {% for post in object_list %}
+
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img rounded-0" src="{{ post.Image.url }}" alt="">
+                                    <a href="#" class="blog_item_date">
+                                        <h3>{{ post.jpublish }}</h3>
+
+                                    </a>
+                                </div>
+
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="{% url 'blog_detail' post.slug %}">
+                                        <h2>{{ post.Title }}</h2>
+                                    </a>
+                                    <p>{{ post.Description|truncatewords:30|safe }}</p>
+                                    <ul class="blog-info-link">
+{#                                        <li><a href="{% url 'author' post.Author.username %}"><i class="fa fa-user"></i>{{ post.Author }}</a></li>#}
+                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                        {% endfor %}
+                        {% if is_paginated %}
+                            <nav class="blog-pagination justify-content-center d-flex">
+                                <ul class="pagination">
+                                    {% if page_obj.has_previous %}
+
+                                        <li class="page-item">
+                                            <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
+                                               aria-label="Previous">
+                                                <i class="ti-angle-right"></i>
+                                            </a>
+                                        </li>
+
+                                    {% endif %}
+                                    {% for page in paginator.page_range %}
+
+                                        {% if page == page_obj.number %}
+                                            <li class="page-item active">
+                                                <a href="?page={{ page }}" class="page-link">{{ page }}</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item">
+                                                <a href="?page={{ page }}" class="page-link">{{ page }}</a>
+                                            </li>
+                                        {% endif %}
+
+                                    {% endfor %}
+
+                                    {% if page_obj.has_next %}
+                                        <li class="page-item">
+                                            <a href="?page={{ page_obj.next_page_number }}" class="page-link"
+                                               aria-label="Next">
+                                                <i class="ti-angle-left"></i>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        {% endif %}
+                    </div>
+                </div>
+                {% render_partial 'sidebar' %}
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+
+
+{% endblock %}
