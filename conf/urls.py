@@ -18,6 +18,7 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from conf.views import header, footer
 
 
 urlpatterns = [
@@ -26,7 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('comment/', include('comment.urls')),
     path('', include('Account.urls')),
-
+    path('header', header, name='header'),
+    path('footer', footer, name='footer'),
 ]
 
 if settings.DEBUG:
