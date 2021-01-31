@@ -27,6 +27,8 @@ class Category(models.Model):
 
     class Meta():
         ordering = ['Position']
+        verbose_name = 'دسته بندی'
+        verbose_name_plural = 'دسته بندی ها'
 
     def __str__(self):
         return self.Title
@@ -58,8 +60,10 @@ class Post(models.Model):
 
     def jpublish(self):
         return JalaliDjango(self.Publish)
+    jpublish.short_description = "زمان انتشار"
 
     def category_published(self):
         return self.Category.filter(Status=True)
+
 
     objects = post_manager()
