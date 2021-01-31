@@ -20,10 +20,10 @@ class categorymanager(models.Manager):
 
 
 class Category(models.Model):
-    Title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-    Status = models.BooleanField(default=True)
-    Position = models.IntegerField()
+    Title = models.CharField(max_length=200, verbose_name='عنوان')
+    slug = models.SlugField(unique=True, verbose_name='آدرس')
+    Status = models.BooleanField(default=True, verbose_name='نمایش داده شود؟')
+    Position = models.IntegerField(verbose_name='پوزیشن')
 
     class Meta():
         ordering = ['Position']
@@ -46,7 +46,7 @@ class Post(models.Model):
     Publish = models.DateTimeField(default=timezone.now, verbose_name='زمان انتشار')
     Created = models.DateTimeField(auto_now_add=True, verbose_name='ایجاد شده در')
     Update = models.DateTimeField(auto_now=True, verbose_name='ویرایش شده در')
-    Status = models.BooleanField(default=True, verbose_name='نمایش داده شود')
+    Status = models.BooleanField(default=True, verbose_name='نمایش داده شود؟')
     comments = GenericRelation(Comment)
 
     class Meta:
