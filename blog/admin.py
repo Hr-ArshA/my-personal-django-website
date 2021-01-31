@@ -13,7 +13,7 @@ class PostAdmin(admin.ModelAdmin):
 
     def category_to_str(self, obj):
         return '، '.join([Category.Title for Category in obj.category_published()])
-
+    category_to_str.short_description = 'دسته بندی'
 
 admin.site.register(Post,PostAdmin)
 
