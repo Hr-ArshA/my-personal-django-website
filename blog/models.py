@@ -67,3 +67,4 @@ class Post(models.Model):
 
 
     objects = post_manager()
+
