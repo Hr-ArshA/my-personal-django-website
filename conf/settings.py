@@ -143,3 +143,6 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+
+LOGIN_URL = '/h/login/'
