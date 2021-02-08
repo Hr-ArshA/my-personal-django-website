@@ -1,12 +1,10 @@
 from django.contrib import admin
 from blog.models import Post, Category
-from django.contrib.auth.admin import UserAdmin
-from Account.models import User
+
 
 # Register your models here.
 
 
-admin.site.register(User, UserAdmin)
 
 
 class PostAdmin(admin.ModelAdmin):
