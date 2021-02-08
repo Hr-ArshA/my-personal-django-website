@@ -1,6 +1,6 @@
 from ckeditor.fields import RichTextField
 from comment.models import Comment
-from django.contrib.auth.models import User
+from Account.models import User
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from extention.utils import JalaliDjango
