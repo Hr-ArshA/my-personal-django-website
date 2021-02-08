@@ -24,7 +24,6 @@ from conf.views import header, footer
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('admin/', admin.site.urls),
     path('comment/', include('comment.urls')),
     path('', include('Account.urls')),
     path('header', header, name='header'),

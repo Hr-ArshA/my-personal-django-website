@@ -146,3 +146,5 @@ CKEDITOR_CONFIGS = {
 
 
 LOGIN_URL = '/h/login/'
+
+AUTH_USER_MODEL = 'Account.User'
