@@ -5,6 +5,8 @@ from blog.models import Post, Category
 # Register your models here.
 
 
+
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('Title','slug','jpublish', 'Author','Status','category_to_str')
     list_filter = ('Publish','Status')
