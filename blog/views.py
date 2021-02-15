@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from Account.models import User
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from blog.models import Post, Category
