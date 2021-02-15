@@ -56,13 +56,14 @@
                                     </a>
                                     <p>{{ post.Description|truncatewords:30|safe }}</p>
                                     <ul class="blog-info-link">
-                                        <li><a href="{% url 'author' post.Author %}"><i
-                                                class="fa fa-user"></i> {{ post.Author.get_full_name }}</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                        <li><a href="{% url 'author' post.Author %}">{{ post.Author.get_full_name }} <i class="fa fa-user"></i></a></li>
+
+
                                     </ul>
                                 </div>
                             </article>
-
+                            {% empty %}
+                            <p>متاسفانه محتوایی برای نمایش وجود ندارد</p>
                         {% endfor %}
                         {% if is_paginated %}
                             <nav class="blog-pagination justify-content-center d-flex">
