@@ -1,9 +1,8 @@
 {% extends 'blog/Base.html' %}
 {% load render_partial %}
-{% load comment_tags %}
-{% load gravatar %}
-
+{% load  static %}
 {% block content %}
+    {% load gravatar %}
 
     <!-- bradcam_area  -->
     <div class="bradcam_area bradcam_bg_1">
@@ -21,12 +20,18 @@
 
 
     <!--================Blog Area =================-->
-    <section class="blog_area section-padding">
+    <section class="blog_area section-padding text-right">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mb-5 mb-lg-0 text-right">
+                <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
+
+                        <div class="alert alert-dark">
+                            <h3> جستوجو: {{ search }} </h3>
+                        </div>
+
                         {% for post in object_list %}
+
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="{{ post.Image.url }}" alt="">
@@ -40,13 +45,16 @@
                                     <a class="d-inline-block" href="{% url 'blog_detail' post.slug %}">
                                         <h2>{{ post.Title }}</h2>
                                     </a>
-                                    <p>{{ post.Description|safe|truncatewords:20 }}</p>
+                                    <p>{{ post.Description|truncatewords:30|safe }}</p>
                                     <ul class="blog-info-link">
                                         <li><a href="{% url 'author' post.Author %}">{{ post.Author.get_full_name }} <i class="fa fa-user"></i></a></li>
+
 
                                     </ul>
                                 </div>
                             </article>
+                        {% empty %}
+                            <p>متاسفانه محتوایی برای نمایش وجود ندارد</p>
                         {% endfor %}
                         {% if is_paginated %}
                             <nav class="blog-pagination justify-content-center d-flex">
@@ -72,8 +80,7 @@
                                                 <a href="?page={{ page }}" class="page-link">{{ page }}</a>
                                             </li>
                                         {% endif %}
-                                    {% empty %}
-                                        <p>متاسفانه محتوایی برای نمایش وجود ندارد</p>
+
                                     {% endfor %}
 
                                     {% if page_obj.has_next %}
@@ -94,5 +101,6 @@
         </div>
     </section>
     <!--================Blog Area =================-->
+
 
 {% endblock %}

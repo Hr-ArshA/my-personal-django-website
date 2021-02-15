@@ -52,6 +52,7 @@ class Post(models.Model):
     comments = GenericRelation(Comment)
 
     class Meta:
+        ordering = ['-Publish']
         verbose_name = 'پست'
         verbose_name_plural = 'پست ها'
 
