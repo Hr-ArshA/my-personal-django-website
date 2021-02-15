@@ -24,7 +24,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('Position','Title','slug','Status')
     list_filter = (['Status'])
     search_fields = ('Title','slug')
-    prepopulated_fields = {'slug':('Title',)}
+
 
 
 
