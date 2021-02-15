@@ -13,6 +13,10 @@ UserAdmin.fieldsets[2][1]['fields'] = (
                                           'user_permissions',
                                       ),
 
+UserAdmin.fieldsets += (
+    ("Bio", {'fields': ('bio',)}),
+)
+
 UserAdmin.list_display += ('is_author',)
 
 admin.site.register(User, UserAdmin)
