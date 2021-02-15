@@ -42,7 +42,7 @@
                                     </a>
                                     <p>{{ post.Description|safe|truncatewords:20 }}</p>
                                     <ul class="blog-info-link">
-                                        <li><a href="#"><i class="fa fa-user"></i> {{ post.Author.get_full_name }}</a></li>
+                                        <li><a href="{% url 'author' post.Author %}"><i class="fa fa-user"></i> {{ post.Author.get_full_name }}</a></li>
                                         <li><a href="#"><i class="fa fa-comments"></i>Comments</a></li>
                                     </ul>
                                 </div>
