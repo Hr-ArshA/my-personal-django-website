@@ -94,18 +94,13 @@
                     </div>
                     <div class="blog-author">
                         <div class="media align-items-center ">
-                            <img src="{% gravatar_url user.email 90 %}" alt="">
-{#                            <li><img src="{% gravatar_url user.email 100 %}" alt=""></li>#}
-{#                                <li class="breadcrumb-item active pt-4 pr-2" aria-current="page" style="font-size: 25px;">{{ Author.get_full_name }}</li>#}
-
-                            <div class="media-body">
-                                <a href="#">
+                            <img src="{% gravatar_url "a_sh1379@yahoo.com" 90 %}" alt="">
+                            <div class="media-body mr-3">
+                                <a href="{% url 'author' post.Author %}">
                                     <h4>{{ post.Author.get_full_name }}</h4>
                                 </a>
-                                <p>Second divided from form fish beast made. Every of seas all gathered use saying
-                                    you're,
-                                    he
-                                    our dominion twon Second divided from</p>
+                                <hr>
+                                <p>{{ post.Author.bio|safe }}</p>
                             </div>
                         </div>
                     </div>
