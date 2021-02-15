@@ -1,0 +1,52 @@
+{% extends 'blog/Base.html' %}
+{% load render_partial %}
+{% load comment_tags %}
+{% load gravatar %}
+
+{% block content %}
+
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>درباره ما</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="about_wrap_area mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-11">
+                    <div class="about_heading text-center">
+                        <h3>{{ object.Title }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="about_info_wrap">
+                <div class="row">
+                    <div class="row">
+                        <div class="single_info">
+                            <p>{{ object.Description|safe }}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="about_banner">
+                            <img src="{{ object.Image.url }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /bradcam_area  -->
+
+{% endblock %}
