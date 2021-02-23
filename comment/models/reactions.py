@@ -37,6 +37,10 @@ class Reaction(models.Model):
         else:
             self._decrease_count('dislikes')
 
+    class Meta():
+        verbose_name = 'پاسخ'
+        verbose_name_plural = 'پاسخ ها'
+
 
 class ReactionInstance(models.Model):
 

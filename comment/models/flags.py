@@ -36,6 +36,10 @@ class Flag(models.Model):
 
     objects = FlagManager()
 
+    class Meta():
+        verbose_name = 'پرچم'
+        verbose_name_plural = 'پرچم ها'
+
     def increase_count(self):
         """Increase flag count and save the model """
         self.refresh_from_db()
@@ -112,3 +116,4 @@ class FlagInstance(models.Model):
     class Meta:
         unique_together = ('flag', 'user')
         ordering = ('date_flagged',)
+        

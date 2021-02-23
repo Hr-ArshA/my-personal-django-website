@@ -31,6 +31,8 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['-posted', ]
+        verbose_name = 'کامنت'
+        verbose_name_plural = 'کامنت ها'
 
     def __str__(self):
         if not self.parent:
