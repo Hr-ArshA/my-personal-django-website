@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from Account.models import User
+from .models import User
 from django.core import validators
 
 
@@ -63,6 +63,7 @@ class RegisterForm(forms.Form):
         if is_exists_email:
             raise forms.ValidationError("کاربری با این ایمیل قبلا ثبت نام کرده است")
         return email
+
 
     def clean_re_password(self):
         password = self.cleaned_data.get("password")

@@ -1,4 +1,3 @@
-from ckeditor.fields import RichTextField
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -6,6 +5,6 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     is_author = models.BooleanField(default=False, verbose_name="وضعیت نویسندگی")
-    bio = RichTextField(blank=True)
+    bio = models.TextField()
 
 
