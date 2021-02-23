@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class WshopAccountConfig(AppConfig):
-    name = 'eshop_Account'
+class AccountConfig(AppConfig):
+    name = 'Account'
+    verbose_name = 'اکانت'
