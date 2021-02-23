@@ -1,0 +1,1 @@
+defualt_app_config = 'about.app.AboutConfig'
