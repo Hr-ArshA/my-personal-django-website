@@ -22,10 +22,17 @@
 
                                     {% for cat in category %}
 
-                                        <li><a class="" href="{% url 'category' cat.slug %}">{{ cat.Title }}</a></li>
+                                        <li><a class="active" href="{% url 'category' cat.slug %}">{{ cat.Title }}</a></li>
 
                                     {% endfor %}
 
+                                    {% if not request.user.is_authenticated %}
+                                    
+                                    <li><a class="active" href="{% url 'login' %}">ورود</a>/<a class="active" href="{% url 'register' %}">ثبت نام</a></li>
+
+                                    {% endif %}
+
+                                </ul>
                             </nav>
                         </div>
                     </div>
